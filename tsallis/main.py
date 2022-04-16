@@ -46,9 +46,10 @@ for i in range(n):
         break
     countentropy+=1
 count=0
-with open("./tsallis/output2.csv", 'w') as wr:
-    for j in range(2, 5):
-        wr.write(f"Entropy with q = {j}\n")
+
+for j in range(2, 5):
+    # will open 3 files for q= 1,2,3 and store output 
+    with open(f"./tsallis/output for q = {j}.csv", 'w') as wr:
         for i in range(countentropy):
             wr.write(str(probabilty(string[i:w], size, j))+"\n")
         # wr.write(f'The average is {sum/countentropy}\n\n')
