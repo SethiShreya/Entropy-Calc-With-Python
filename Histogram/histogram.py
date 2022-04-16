@@ -6,12 +6,12 @@ def makeHistogram(df, title, xlabel, ylabel, outputFileName):
     
 
     # plotting histogram
-    plt.hist(df)
+    plt.hist(df, bins=7)
 
     # Giving label to the graph
-    plt.title("Entropy Data")
-    plt.xlabel("Entropy")
-    plt.ylabel("Frequency")
+    plt.title(f"{title}")
+    plt.xlabel(f"{xlabel}")
+    plt.ylabel(f"{ylabel}")
 
     # saving histogram plt to the specifies location
     plt.savefig(f'./Histogram/{outputFileName}.png')

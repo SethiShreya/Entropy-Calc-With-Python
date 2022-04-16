@@ -33,14 +33,14 @@ def frequency(listob):
     # for tsallis
     for i in range(2, 5):
         with open(f"./frequency/tsallis for q = {i}.csv", 'w') as tsal:
-            for i in freq:
-                tsal.write(str(tsallis(freq[i], size, q))+'\n')
+            for j in freq:
+                tsal.write(str(tsallis(freq[j], size, i))+'\n')
             
 
 
 inplist = []
 # with open("input.csv") as f:
-with open("./random_generator/Normal.csv") as f:
+with open("./random_generator/Triangular.csv") as f:
     csvread= csv.reader(f)
 
     for line in csvread:
