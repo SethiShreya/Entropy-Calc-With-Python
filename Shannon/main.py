@@ -1,7 +1,13 @@
 from math import log2
 import os
-os.chdir(".\Shannon")
-print(os.getcwd())
+# check if the file exist in current directory
+# file_exists = os.path.exists('./random_generator/Normal.csv')
+
+# if (file_exists):
+#     pass
+# else:
+# os.chdir("./frequency")
+# print(os.getcwd())
 
 
 def entropy(string,size):
@@ -15,7 +21,7 @@ def entropy(string,size):
    
 
 
-with open("input.csv") as f:
+with open("./random_generator/Normal.csv") as f:
     # print(f.read())
     string= f.read()
 
@@ -31,7 +37,7 @@ for i in range(n):
         break
     countentropy+=1
 count=0
-with open("output.csv", 'w') as wr:
+with open("./Shannon/output2.csv", 'w') as wr:
     for i in range(countentropy):
         wr.write(str(entropy(string[i:w], size))+"\n")
         w+=1

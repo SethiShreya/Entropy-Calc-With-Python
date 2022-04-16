@@ -1,10 +1,16 @@
 import os
 from math import pow
-os.chdir(".\\tsallis")
-sum=0
+# check if the file exist in current directory
+# file_exists = os.path.exists('./random_generator/Normal.csv')
+
+# if (file_exists):
+#     pass
+# else:
+# os.chdir("./frequency")
+# print(os.getcwd())
 
 def probabilty(string, windowsize, q):
-    global sum
+    # global sum
     n= len(string)
     count_1=0
     count_0=0
@@ -18,12 +24,12 @@ def probabilty(string, windowsize, q):
     prob_1= pow(count_1/windowsize, q)
     prob_0_1 = prob_0+ prob_1
     s= (1/(q-1))*(1-prob_0_1)
-    sum+=s
+    # sum+=s
     return s
    
 
 # reading content of file
-with open("input.csv") as f:
+with open("./random_generator/Normal.csv") as f:
     # print(f.read())
     string= f.read()
 
@@ -40,10 +46,10 @@ for i in range(n):
         break
     countentropy+=1
 count=0
-with open("output.csv", 'w') as wr:
+with open("./tsallis/output2.csv", 'w') as wr:
     for j in range(2, 5):
         wr.write(f"Entropy with q = {j}\n")
         for i in range(countentropy):
             wr.write(str(probabilty(string[i:w], size, j))+"\n")
-        wr.write(f'The average is {sum/countentropy}\n\n')
+        # wr.write(f'The average is {sum/countentropy}\n\n')
 # print(countentropy)
