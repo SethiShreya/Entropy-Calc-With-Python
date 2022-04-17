@@ -3,6 +3,8 @@ from math import pow
 # check if the file exist in current directory
 # file_exists = os.path.exists('./random_generator/Normal.csv')
 
+sum= 0.0
+
 # if (file_exists):
 #     pass
 # else:
@@ -10,7 +12,7 @@ from math import pow
 # print(os.getcwd())
 
 def probabilty(string, windowsize, q):
-    # global sum
+    global sum
     n= len(string)
     count_1=0
     count_0=0
@@ -24,12 +26,12 @@ def probabilty(string, windowsize, q):
     prob_1= pow(count_1/windowsize, q)
     prob_0_1 = prob_0+ prob_1
     s= (1/(q-1))*(1-prob_0_1)
-    # sum+=s
+    sum=sum+s
     return s
    
 
 # reading content of file
-with open("./random_generator/Normal.csv") as f:
+with open("./tsallis/input.csv") as f:
     # print(f.read())
     string= f.read()
 
@@ -37,9 +39,11 @@ with open("./random_generator/Normal.csv") as f:
 # taking input of window size  
 n= len(string)
 countentropy=0
+no_of_entropy= int(input("How many entropy you want: "))
 # w= int(input("Enter the window size: "))
-w= n-99
+w= n-(no_of_entropy-1)
 size=w
+print("Size of Window will be "+str(w))
 power= 2
 for i in range(n):
     if i+w>n:
@@ -52,5 +56,6 @@ for j in range(2, 5):
     with open(f"./tsallis/output for q = {j}.csv", 'w') as wr:
         for i in range(countentropy):
             wr.write(str(probabilty(string[i:w], size, j))+"\n")
-        # wr.write(f'The average is {sum/countentropy}\n\n')
+        wr.write(f'\n\nThe average is {sum/countentropy}\n\n')
+        sum = 0.0
 # print(countentropy)

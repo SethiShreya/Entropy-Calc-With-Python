@@ -6,7 +6,7 @@ def makeHistogram(df, title, xlabel, ylabel, outputFileName):
     
 
     # plotting histogram
-    plt.hist(df, bins=7)
+    plt.hist(df, bins=3)
 
     # Giving label to the graph
     plt.title(f"{title}")
@@ -17,13 +17,13 @@ def makeHistogram(df, title, xlabel, ylabel, outputFileName):
     plt.savefig(f'./Histogram/{outputFileName}.png')
     # plt.show()
 
-df= pd.read_csv("./frequency/shannon.csv")
-df2= pd.read_csv("./frequency/tsallis for q = 2.csv")
-df3= pd.read_csv("./frequency/tsallis for q = 3.csv")
-df4= pd.read_csv("./frequency/tsallis for q = 4.csv")
+df= pd.read_csv("./frequency/shannon(Uniform(1_300_500)).csv")
+df2= pd.read_csv("./frequency/tsallis(Uniform(1_300_500)) for q = 2.csv")
+df3= pd.read_csv("./frequency/tsallis(Uniform(1_300_500)) for q = 3.csv")
+df4= pd.read_csv("./frequency/tsallis(Uniform(1_300_500)) for q = 4.csv")
 
-makeHistogram(df, "Shannon Entropy Histogram", "Frequency", "Shannon Entropy", "Shannon")
-makeHistogram(df2, "Tsallis Entropy Histogram", "Frequency", "Tsallis Entropy for q = 2", "Tsallis for q=2")
-makeHistogram(df3, "Tsallis Entropy Histogram", "Frequency", "Tsallis Entropy for q = 3", "Tsallis for q=3")
-makeHistogram(df4, "Tsallis Entropy Histogram", "Frequency", "Tsallis Entropy for q = 4", "Tsallis for q=4")
+makeHistogram(df, "Shannon Entropy Histogram", "Shannon Entropy", "Frequency", "Shannon(Uniform(1_300_500))")
+makeHistogram(df2, "Tsallis Entropy Histogram", "Tsallis Entropy for q = 2", "Frequency", "Tsallis(Uniform(1_300_500)) for q=2")
+makeHistogram(df3, "Tsallis Entropy Histogram", "Tsallis Entropy for q = 3", "Frequency","Tsallis(Uniform(1_300_500)) for q=3")
+makeHistogram(df4, "Tsallis Entropy Histogram",  "Tsallis Entropy for q = 4","Frequency", "Tsallis(Uniform(1_300_500)) for q=4")
 
