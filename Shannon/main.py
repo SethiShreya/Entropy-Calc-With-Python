@@ -12,13 +12,17 @@ import os
 
 def entropy(string,size):
     n= len(string)
-    count=0
+    count_0=0
+    count_1=0
     for i in range(n):
         if string[i]=='1':
-            count+=1
+            count_1+=1
+        else:
+            count_0+=1
 
-    return abs(-(count/size)*(log2(count/size)))
-   
+    ent_1 = abs(-(count_1/size)*(log2(count_1/size)))
+    ent_0 = abs(-(count_0/size)*(log2(count_0/size)))
+    return ent_1+ent_0
 
 
 with open("./Shannon/BinaryEquivalent.csv") as f:
@@ -39,9 +43,14 @@ for i in range(n):
         break
     countentropy+=1
 count=0
-with open(f"./Shannon/BinaryEquivalentOutput with WindowSize_{w}.csv", 'w') as wr:
+total=0
+with open(f"./Shannon/BinaryEquivalentOutput with windowsize={w}.csv", 'w') as wr:
     for i in range(countentropy):
-        wr.write(str(entropy(string[i:w], size))+"\n")
+        s=entropy(string[i:w], size)
+        total+=s
+        wr.write(str(s)+"\n")
         w+=1
-
+print(countentropy)
+with open(f"./Shannon/BinaryEquivalentOutput with windowsize=31961.csv", 'a') as wr:
+    wr.write(f"\n\nAverage is {total/countentropy}")
 # print(countentropy)
