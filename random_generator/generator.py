@@ -37,9 +37,9 @@ class Random_No:
 
 if __name__=="__main__":
     R = Random_No()
-    # R.gettriangular(1, 100, 250, 500)
-    R.getexponential(100, 300)
-    # R.getlognormal(1, 50, 500)
-    R.getnormal(1, 100, 300)
-    R.getuniform(1,100,300)
+    # R.gettriangular(1, 50, 100, 300)
+    # R.getexponential(100, 300)
+    R.getlognormal(1, 50, 500)
+    # R.getnormal(1, 100, 300)
+    # R.getuniform(1,100,300)
     # print("Files are created")

@@ -21,7 +21,7 @@ def entropy(string,size):
    
 
 
-with open("./Shannon/input.csv") as f:
+with open("./Shannon/BinaryEquivalent.csv") as f:
     # print(f.read())
     string= f.read()
 
@@ -39,7 +39,7 @@ for i in range(n):
         break
     countentropy+=1
 count=0
-with open("./Shannon/output2.csv", 'w') as wr:
+with open(f"./Shannon/BinaryEquivalentOutput with WindowSize_{w}.csv", 'w') as wr:
     for i in range(countentropy):
         wr.write(str(entropy(string[i:w], size))+"\n")
         w+=1

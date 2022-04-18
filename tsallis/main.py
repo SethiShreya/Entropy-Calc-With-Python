@@ -53,7 +53,7 @@ count=0
 
 for j in range(2, 5):
     # will open 3 files for q= 1,2,3 and store output 
-    with open(f"./tsallis/output for q = {j}.csv", 'w') as wr:
+    with open(f"./tsallis/BimaryEquivalentOutput for q = {j} with windowSize_{w}.csv", 'w') as wr:
         for i in range(countentropy):
             wr.write(str(probabilty(string[i:w], size, j))+"\n")
         wr.write(f'\n\nThe average is {sum/countentropy}\n\n')
